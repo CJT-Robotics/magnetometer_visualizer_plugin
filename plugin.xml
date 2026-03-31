@@ -1,0 +1,11 @@
+<library path="src">
+    <class name="MagnetometerVisualizer" type="magnetometer_visualizer_plugin.mag_plugin.MagPlugin" base_class_type="rqt_gui_py::Plugin">
+    <description>Magnetic Field Monitor</description>
+    <qtgui>
+        <group>
+            <label>CJT-Robotics</label>
+        </group>
+        <label>Magnetic Field Monitor</label>
+    </qtgui>
+    </class>
+</library>
