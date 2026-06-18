@@ -49,9 +49,9 @@ class MagPlotCanvas(FigureCanvas):
         self.ax.grid(True, linestyle=':', alpha=0.6)
         
         self.lines = {
-            'x': self.ax.plot([], [], 'r-', label='X-Achse', linewidth=1.2)[0],
-            'y': self.ax.plot([], [], 'g-', label='Y-Achse', linewidth=1.2)[0],
-            'z': self.ax.plot([], [], 'b-', label='Z-Achse', linewidth=1.2)[0]
+            'x': self.ax.plot([], [], 'r-', label='X-Axis', linewidth=1.2)[0],
+            'y': self.ax.plot([], [], 'g-', label='Y-Axis', linewidth=1.2)[0],
+            'z': self.ax.plot([], [], 'b-', label='Z-Axis', linewidth=1.2)[0]
         }
 
         self.status_text = self.ax.text(0.02, 0.95, '', transform=self.ax.transAxes, verticalalignment='top', fontsize=11, fontweight='bold', bbox=dict(facecolor='white', alpha=0.8, edgecolor='gray'))
@@ -179,7 +179,7 @@ class MagPlugin(Plugin):
         self.thresh_spin.setValue(float(instance_settings.value('threshold', 5.0)))
         self.zoom_spin.setValue(float(instance_settings.value('zoom', 150.0)))
         self.unit_combo.setCurrentIndex(int(instance_settings.value('unit', 0)))
-        self._reconnect_topic() # Nach dem Laden neu verbinden
+        self._reconnect_topic()
 
     def _reconnect_topic(self):
         topic_name = self.topic_combo.currentText().strip()
