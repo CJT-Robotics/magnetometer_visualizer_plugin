@@ -9,6 +9,9 @@ from matplotlib.figure import Figure
 from qt_gui.plugin import Plugin
 from python_qt_binding.QtWidgets import (QWidget, QVBoxLayout, QFormLayout, QDoubleSpinBox, QSpinBox, QComboBox, QTabWidget, QGroupBox, QPushButton)
 from python_qt_binding.QtCore import QTimer
+from python_qt_binding.QtGui import QIcon
+import os
+import rospkg
 
 from sensor_msgs.msg import MagneticField
 
@@ -115,6 +118,16 @@ class MagPlugin(Plugin):
         main_layout = QVBoxLayout(self._main_widget)
         
         self.tabs = QTabWidget()
+
+        try:
+            rp = rospkg.RosPack()
+            package_path = rp.get_path('magnetometer_visualizer_plugin') 
+            icon_path = os.path.join(package_path, 'res', 'favicon.png')
+            self._main_widget.setWindowIcon(QIcon(icon_path))
+        except Exception as e:
+            rospy.logwarn(e)
+
+        self._main_widget.setWindowTitle('Magnetometer Visualizer')
         
         self.plot_tab = QWidget()
         plot_layout = QVBoxLayout(self.plot_tab)
