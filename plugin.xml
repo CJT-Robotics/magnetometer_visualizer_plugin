@@ -4,8 +4,11 @@
     <qtgui>
         <group>
             <label>CJT-Robotics</label>
+            <icon>res/favicon.png</icon>
         </group>
         <label>Magnetic Field Monitor</label>
+        <title>Magnetometer Visualizer</title>
+        <icon>res/favicon.png</icon>
     </qtgui>
     </class>
 </library>
